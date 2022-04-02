@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--v3 update: 20220401-->
+<html lang="en">
+  <head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta platform = 'FileMaker web viewer'>
+    <meta author='jeff'>
+    <meta version='v3'>
+    <title>FileMaker naming convention</title>
+		
+		<style>
+			:root {
+				font-size: 14px;
+				background: #333;
+        color:#ddd;
+				font-family: helvetica times 'times new roman' serif sans-serif;
+				margin: 0;
+        padding:0;
+			}
+      .details {
+        color:#ddd;
+        margin: 0.1rem 0.5rem 0.1rem 1rem;
+        position:inherit;
+      }
+      .details .p_section{
+        color:#ddd;
+        font-size:1.2rem;
+        margin: 0.1rem 0.5rem 0.1rem 1rem;
+        position:inherit;
+      }
+			.p_section {
+				font-size: 1.2rem;
+				color: #ff6;
+				margin: 0.1rem 0.5rem 0.1rem 1rem;
+				padding: 0.1rem 0.5rem 0.1rem 1rem;
+			}
+      ul{
+        margin: 0;
+      }
+			.li_item {
+				color: #ddd;
+				font-size: 1rem;
+				height: auto;
+				margin: 0.1rem 0.8rem 0.1rem 0.5rem;
+				padding: 0.1rem 0.8rem 0.1rem 0.5rem;
+        left:0.5rem;
+        position:inherit;
+			}
+      .p_item {
+				color: #ddd;
+				font-size: 1rem;
+				height: auto;
+				margin: 0.1rem 0.8rem 0.1rem 2rem;
+				padding: 0.1rem 0.8rem 0.1rem 1rem;
+        position:inherit;
+			}
+			.abbr {
+				color: lime;
+				font-size: 1.2rem;
+        margin: 0 0.5rem;
+			}
+			.icon {
+				color: orange;
+				font-size: 1.2rem;
+			}
+			.specialChar {
+				color: orchid;
+				font-size: 1.1rem;
+			}
+			hr {
+				color: #666;
+				height: 0.5px;
+			}
+			summary {
+				color: lightgray;
+				margin: 2px 2px 2px 12px;
+				padding: 2px 2px 2px 2px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p class="p_section">camel case 為主, snake case為輔</p>
+		<p class="p_section">名稱中使用英文字元, 不使用中文</p>
+		<p class="p_section">同名原則, 例如: 在不同的table的相同意涵的欄位, 使用相同的欄位名稱</p>
+		<p class="p_section">名稱中不使用空白</p>
+    <p class="p_section">使用可以表達內容意涵的最短文字作為名稱</p>
+    <p class="p_section">FileMaker 的名稱不區分大小寫, 在書寫時, 仍維持表達意涵的大小寫</p>
+		<p class="p_section">如需要用縮寫, 取單字的第一個字元大寫表示</p>
+		<p class="p_section">在 FileMaker 的 layout name, script name 允許使用以數字開頭的名稱, 應禁止使用這種寫法</p>
+    <p class="p_section">在 FileMaker 的 script name 允許重複的名稱, 應禁止這種狀況</p>
+    <p class="p_section">在 html, css, javascript 中的引號, 優先使用單引號</p>
+		<!--css style naming-->
+		<details class='details'>
+			<summary class="p_section">layout css style 名稱的命名規則</summary>
+			<p class='p_item'>依循 css property 的命名習慣</p>
+      <p class='p_item'>格式: type_hv_background_foreground_size_serial_obj</p>
+      <p class='p_item'>example: eb_lc_trans_white_14_0_firstField</p>
+			<details class='details'>
+				<summary>type 表示 layout object 的類別</summary>
+				<ul>
+					<li class='li_item'><span class="abbr">te</span>: text</li>
+					<li class='li_item'><span class="abbr">eb</span>: edit box, 包含 scrolling edit box, concealed edit box</li>
+					<li class='li_item'><span class="abbr">dd</span>: drop down list</li>
+					<li class='li_item'><span class="abbr">pm</span>: popup menu</li>
+					<li class='li_item'><span class="abbr">cs</span>: checkbox set</li>
+					<li class='li_item'><span class="abbr">rb</span>: radio button set</li>
+					<li class='li_item'><span class="abbr">ca</span>: drop down calendar</li>
+					<li class='li_item'><span class="abbr">pa</span>: part</li>
+					<li class='li_item'><span class="abbr">bu</span>: button</li>
+					<li class='li_item'><span class="abbr">bb</span>: button bar</li>
+					<li class='li_item'><span class="abbr">po</span>: pop over</li>
+					<li class='li_item'><span class="abbr">wv</span>: web viewer</li>
+					<li class='li_item'><span class="abbr">tc</span>: tab control</li>
+					<li class='li_item'><span class="abbr">sl</span>: slide</li>
+					<li class='li_item'><span class="abbr">po</span>: portal</li>
+					<li class='li_item'><span class="abbr">ch</span>: chart</li>
+					<li class='li_item'><span class="abbr">li</span>: line</li>
+					<li class='li_item'><span class="abbr">re</span>: rectangle</li>
+					<li class='li_item'><span class="abbr">rr</span>: rounded rectangle</li>
+					<li class='li_item'><span class="abbr">ov</span>: oval</li>
+				</ul>
+			</details>
+			
+			<details class='details'>
+				<summary>hv 表示水平與垂直對齊</summary>
+				<ul>
+					<li class='li_item'>水平方向: <span class="abbr">l</span>: left, <span class="abbr">r</span>: right, <span class="abbr">m</span>: middle, <span class="abbr">f</span>: fully justified</li>
+					<li class='li_item'>垂直方向: <span class="abbr">t</span>: top, <span class="abbr">c</span>: center, <span class="abbr">b</span>: bottom</li>
+				</ul>
+			</details>
+			<p class='p_item'>background 背景色</p>
+			<p class='p_item'>foreground 前景色</p>
+			<p class='p_item'>size 字體大小</p>
+			<p class='p_item'>serial 序號</p>
+      <p class='p_item'>obj 標示用在哪裡或目的</p>
+		</details>
+		<!--field name, to naming-->
+		<details class='details'>
+			<summary class="p_section">table occurence 命名</summary>
+			<p class='p_item'>left table<span class="abbr">«id»</span>right table : relation on id of left table</p>
+			<p class='p_item'>left table<span class="abbr">«x»</span>right table : Cartesian product</p>
+			<p class='p_item'>left table<span class="abbr">«1»</span>right table : always connect relation</p>
+			<p class='p_item'>left table<span class="abbr">«比較»</span>right table : other connection situation</p>
+			<p class='p_item'><span class="abbr">«key_lt»</span>less than</p>
+			<p class='p_item'><span class="abbr">«key_le»</span>less than or equal</p>
+			<p class='p_item'><span class="abbr">«key_gt»</span>greater than</p>
+			<p class='p_item'><span class="abbr">«key_ge»</span>greater than or equal</p>
+			<p class='p_item'><span class="abbr">«key_ne»</span>not equal</p>
+		</details>
+    <details class="details">
+      <summary class="p_section">field name 命名</summary>
+      <p class="p_section">具有特殊意涵的 field 的結尾</p>
+      <p class='p_item'>field name 的結尾<span class="abbr">_Z</span>: global field</p>
+			<p class='p_item'>field name 的結尾<span class="abbr">_U</span>: unstored calculation field</p>
+      <p class='p_item'>field name 的結尾<span class="abbr">_S</span>: summary field</p>
+      <p class='p_item'>field name 的結尾<span class="abbr">_V</span>: value list</p>
+      <p class='p_item'>field name 的結尾<span class="abbr">_J</span>: json</p>
+      <p class="p_section">具有特殊意涵的 field 的附加結尾</p>
+      <p class='p_item'>field name: <span class="abbr">_html</span>>表示是內容為 hmtl框架, 不含 mime 宣告</p>
+      <p class='p_item'>field name: <span class="abbr">_body</span>>表示是內容為 hmtl的 body 內容, 不含 open tag 和 close tag</p>
+      <p class='p_item'>field name: <span class="abbr">_css</span>>表示是內容為 css 的內容, 不含 open tag 和 close tag</p>
+      <p class='p_item'>field name: <span class="abbr">_js</span>>表示是內容為 javascript 的內容, 不含 open tag 和 close tag</p>
+      <p class='p_item'>例如: <span class="abbr">menuTree_Z_html</span> 表示是內容為 顯示 menuTree 內容的 html 框架, 是要被來源資料做置換</p>
+      <p class='p_item'>例如: <span class="abbr">menuTree_Z_css</span> 表示是內容為 顯示 menuTree 內容的 css 的內容</p>
+    </details>
+		<!--custom function name-->
+		<details class='details'>
+			<summary class="p_section">custom function 的類別</summary>
+			<p class='p_item'><span class="abbr">cf_</span>: 泛用型的 custom function</p>
+			<p class='p_item'><span class="abbr">co_</span>: 是常數的 custom function</p>
+			<p class='p_item'><span class="abbr">mk_</span>: file 或 table 專用的 custom function</p>
+		</details>
+		<!--variable naming-->
+		<details class='details'>
+			<summary class="p_section">變數名稱的命名</summary>
+			<p class='p_item'>以 <span class="abbr">_ </span>開頭: 標示 parameter 或 function variable</p>
+			<p class='p_item'><span class="abbr">_tx or _txt or _str</span>: text, string</p>
+			<p class='p_item'><span class="abbr">_no</span>: number</p>
+			<p class='p_item'><span class="abbr">_src</span>: source</p>
+			<p class='p_item'><span class="abbr">_dst </span>: destination</p>
+			<p class='p_item'><span class="abbr">_len </span>: length</p>
+			<p class='p_item'><span class="abbr">_ini or _start </span>: initial state, starting point</p>
+			<p class='p_item'><span class="abbr">_end </span>: end point</p>
+			<p class='p_item'><span class="abbr">_i </span>: iteration, increment</p>
+			<p class='p_item'><span class="abbr">_e </span>: event parameter</p>
+			<p class='p_item'><span class="abbr">_ts </span>: timestamp</p>
+			<p class='p_item'><span class="abbr">_if </span>: boolean data, 如果未指定為 true 則視為 false(非真即假)</p>
+			<p class='p_item'><span class="abbr">_is </span>: boolean data, 如果未指定為 false 則視為 true(非假即真)</p>
+      <p class='p_item'><span class="abbr">_ifCase </span>: 是否區分大小寫, boolean data, 如果未指定為 true 則視為 false(非真即假)</p>
+      <p class='p_item'><span class="abbr">_isCase </span>: 是否區分大小寫, boolean data, 如果未指定為 false 則視為 true(非假即真)</p>
+			<p class='p_item'><span class="abbr">_j or _json </span>: json data</p>
+			<p class='p_item'><span class="abbr">_key</span>: key, also name of json data</p>
+			<p class='p_item'><span class="abbr">_vlu</span>: value, also value of json data</p>
+			<p class='p_item'><span class="abbr">_mi </span>: minimum</p>
+			<p class='p_item'><span class="abbr">_mx </span>: maximum</p>
+			<p class='p_item'><span class="abbr">_vl </span>: value</p>
+			<p class='p_item'><span class="abbr">_rS </span>: row separator</p>
+			<p class='p_item'><span class="abbr">_cS </span>: column separator</p>
+			<p class='p_item'><span class="abbr">_lDiv </span>: leading divider ( delimiter )</p>
+			<p class='p_item'><span class="abbr">_tDiv </span>: trailing divider ( delimiter )</p>
+			<p class='p_item'><span class="abbr">_cr </span>: color</p>
+			<p class='p_item'><span class="abbr">_sz </span>: size</p>
+			<p class='p_item'><span class="abbr">_fo </span>: font</p>
+			<p class='p_item'><span class="abbr">_st </span>: style</p>
+			<p class='p_item'><span class="abbr">_toRep </span>: to replace,是以事件發生時的狀態而定</p>
+			<p class='p_item'><span class="abbr">_beRep </span>: be replaced, 是以事件發生時的狀態而定</p>
+		</details>
+		<!--naming about window-->
+		<details class='details'>
+			<summary class="p_section">應用 window 的幾何參數表示</summary>
+			<p class='p_item'><span class="abbr">t </span>: 表示 top</p>
+			<p class='p_item'><span class="abbr">b </span>: 表示 bottom</p>
+			<p class='p_item'><span class="abbr">l </span>: 表示 left</p>
+			<p class='p_item'><span class="abbr">r </span>: 表示 right</p>
+			<p class='p_item'><span class="abbr">w </span>: 表示 width</p>
+			<p class='p_item'><span class="abbr">h </span>: 表示 height</p>
+		</details>
+		<!--special characters-->
+		<details class='details'>
+			<summary class="p_section">特殊符號, 可用於標示, 區隔</summary>
+			<p class='p_item'><span class="icon">« </span>: alt-\</p>
+			<p class='p_item'><span class="icon">» </span>: alt-shift-\</p>
+			<p class='p_item'><span class="icon">∫ </span>: alt-b</p>
+			<p class='p_item'><span class="icon">ƒ </span>: alt-f</p>
+			<p class='p_item'><span class="icon">˚ </span>: alt-k</p>
+			<p class='p_item'><span class="icon">µ </span>: alt-m</p>
+			<p class='p_item'><span class="icon">ø </span>: alt-o</p>
+			<p class='p_item'><span class="icon"> </span>: alt-shift-k</p>
+			<p class='p_item'><span class="icon">Ø </span>: alt-shift-o</p>
+			<p class='p_item'><span class="icon">◊ </span>: alt-shift-v</p>
+			<p class='p_item'><span class="icon">§ </span>: alt-6</p>
+			<p class='p_item'><span class="icon">• </span>: alt-8</p>
+			<p class='p_item'><span class="icon">° </span>: alt-shift-8</p>
+			<p class='p_item'><span class="icon">æ </span>: alt-' (single quote)</p>
+			<p class='p_item'><span class="icon">Ω </span>: alt-z 和許多應用程式的 hot-key 衝突</p>
+			<p class='p_item'><span class="icon">∆ </span>: alt-j</p>
+		</details>
+		<!--filemaker native operants-->
+		<details class='details'>
+			<summary class="p_section">運算符號</summary>
+			<p class='p_item'>使用正規的運算字元, 盡量不要使用 filemaker 內建的運算符號(如下)</p>
+			<p class='p_item'><span class="icon">‹ </span>: alt-shift-3 fmp 函數中的小於(不要使用); 使用 <span class="abbr">&lt;</span></p>
+			<p class='p_item'><span class="icon">› </span>: alt-shift-4 fmp 函數中的大於(不要使用); 使用 <span class="abbr">&gt;</span></p>
+			<p class='p_item'><span class="icon">≠ </span>: alt-= fmp 函數中的不等號(不要使用); 使用 <span class="abbr">&lt;&gt;</span></p>
+			<p class='p_item'><span class="icon">≤ </span>: alt-&lt; fmp 函數中的小於或等於(不要使用); 使用 <span class="abbr">&lt;=</span></p>
+			<p class='p_item'><span class="icon">≥ </span>: alt-&gt; fmp 函數中的大於或等於(不要使用); 使用 <span class="abbr">&gt;=</span></p>
+			<p class='p_item'><span class="icon">ˆ </span>: alt-i 次方(不要使用); 使用 <span class="abbr">^</span> (shift-6)</p>
+			<p class='p_item'><span class="icon">… </span>: alt-; char(133), 換行但不會產生新 value, 可以當作 fmp 查詢中的 range</p>
+			<p class='p_item'><span class="icon">… </span>: char (8230) fmp 查詢中的 range</p>
+      <p class='p_item'>FileMaker value list 的值的分隔字元 : return: ¶ , char(13) ; tab : char(9) ; lineFeed : char(10) ; newLine : char(8232) </p>
+		</details>
+		<!--mathermatical symbols, but nor for calculation-->
+		<details class='details'>
+			<summary class="p_section">數學符號(只能用於顯示, 沒有實際計算功能)</summary>
+			<p class='p_item'><span class="icon">÷ </span>: alt-/</p>
+			<p class='p_item'><span class="icon">√ </span>: alt-v</p>
+			<p class='p_item'><span class="icon">≈ </span>: alt-x</p>
+			<p class='p_item'><span class="icon">π </span>: alt-p</p>
+			<p class='p_item'><span class="icon">∑ </span>: alt-w</p>
+			<p class='p_item'><span class="icon">∞ </span>: alt-5</p>
+			<p class='p_item'><span class="icon">‰ </span>: alt-shift-r</p>
+			<p class='p_item'><span class="icon">¿ </span>: alt-shift-/</p>
+		</details>
+		<!--currency, special symbols-->
+		<details class='details'>
+			<summary class="p_section">幣別, 特別符號</summary>
+			<p class='p_item'><span class="icon">€ </span>: alt-shift-2</p>
+			<p class='p_item'><span class="icon">¥ </span>: alt-y</p>
+			<p class='p_item'><span class="icon">£ </span>: alt-3</p>
+			<p class='p_item'><span class="icon">¢ </span>: alt-4</p>
+			<p class='p_item'><span class="icon">™ </span>: alt-2</p>
+			<p class='p_item'><span class="icon">© </span>: alt-g</p>
+			<p class='p_item'><span class="icon">® </span>: alt-r</p>
+		</details>
+		<details class='details'>
+			<summary class="p_section">用來識別用的分隔符號, 彝族文字</summary>
+      <p class='p_item'>彝族文字 char(40960) ~ char(42182)</p>
+			<p class='p_item'><span class="specialChar">ꃊ</span>: char(41162)</p>
+			<p class='p_item'><span class="specialChar">ꃎ</span>: char(41444)</p>
+			<p class='p_item'><span class="specialChar">ꇤ</span>: char(41166)</p>
+			<p class='p_item'><span class="specialChar">ꊱ</span>: char(41649)</p>
+			<p class='p_item'><span class="specialChar">ꋊ</span>: char(41674)</p>
+			<p class='p_item'><span class="specialChar">ꌦ</span>: char(41766)</p>
+			<p class='p_item'><span class="specialChar">ꏍ</span>: char(41933)</p>
+			<p class='p_item'><span class="specialChar">ꏢ</span>: char(41954)</p>
+			<p class='p_item'><span class="specialChar">ꏸ</span>: char(41976)</p>
+		</details>
+	</body>
+</html>
